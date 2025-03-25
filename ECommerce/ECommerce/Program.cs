@@ -17,6 +17,9 @@ builder.Services.AddDbContext<StoreContext>(opt =>
 // This service added for creating service for ProductRepository is a implementation class IProductRepository is a interface
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
+// Add service for Generic Repository
+builder .Services .AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
 var app = builder.Build(); // After this line everthing is middleware sushil
 
 // Configure the HTTP request pipeline.
