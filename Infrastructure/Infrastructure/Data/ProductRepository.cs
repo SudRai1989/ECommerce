@@ -50,7 +50,7 @@ namespace Infrastructure.Data
                 "priceDesc" => query.OrderByDescending(x => x.Price),
                 _ => query.OrderBy(x => x.Price)
             };
-            return await query.ToListAsync();
+            return await query.ToListAsync(); // skip and take for pagination
             //return await context.Products.ToListAsync();
         }
 

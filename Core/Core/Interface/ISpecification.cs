@@ -16,6 +16,12 @@ namespace Core.Interface
         Expression<Func<T, object>>? OrderByDescending { get; }
 
         bool IsDistinct { get; }
+
+        // For pagination
+        int Take { get; }
+        int Skip { get; }
+        bool IsPagingEnabled { get; }
+        IQueryable<T> ApplyCriteria(IQueryable<T> query);
     }
 
     // Interface for getting non generic result Brand, Type
