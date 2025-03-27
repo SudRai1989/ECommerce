@@ -1,4 +1,5 @@
 using Core.Interface;
+using ECommerce.Middleware;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,12 +18,20 @@ builder.Services.AddDbContext<StoreContext>(opt =>
 // This service added for creating service for ProductRepository is a implementation class IProductRepository is a interface
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
+// Add Cors service
+builder.Services.AddCors();
+
 // Add service for Generic Repository
 builder .Services .AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
 var app = builder.Build(); // After this line everthing is middleware sushil
 
 // Configure the HTTP request pipeline.
+
+app.UseMiddleware<ExceptionMiddleware>(); // This is using for handling exception in Middleware
+
+// Mst declare cors between these two configuration
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200","https://localhost:4200"));
 
 app.MapControllers();
 
