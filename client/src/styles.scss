@@ -4,8 +4,6 @@
 
 @include mat.core();
 
-
-
 .custom-theme {
 
   html {
@@ -17,8 +15,19 @@
   }
 }
 
+:root {
+  @include mat.paginator-overrides((  container-background-color: white, ));
+}
 .container {
  /* @apply mx-auto max-w-screen-5xl;*/
   max-width: auto;
   max-width: var(--container-1);
+}
+
+.text-primary{
+    color: #7d00fa
+}
+
+button.match-input-height{
+    height: var(--mat-form-field-container-height) !important;
 }
