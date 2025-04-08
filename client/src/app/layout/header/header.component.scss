@@ -15,3 +15,9 @@
   background: #2c6db3;
   color: white;
 }
+
+a{
+    &.active{
+        color: #700dfa
+    }
+}
