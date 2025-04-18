@@ -36,3 +36,17 @@ This css form Quantity outline manage */
 .mdc-notched-outline__notch {
     border-right-style: none !important
 }
+
+/* Add class for the snackbar popup message*/
+.mat-mdc-snack-bar-container.snack-error{
+    --mdc-snackbar-container-color: red;
+    --mat-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
+
+}
+
+.mat-mdc-snack-bar-container.snack-success {
+  --mdc-snackbar-container-color: green;
+  --mat-snack-bar-button-color: #fff;
+  --mdc-snackbar-supporting-text-color: #fff;
+}

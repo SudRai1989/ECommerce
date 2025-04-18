@@ -1,0 +1,21 @@
+<div class="mt-5 p-4 bg-gray-100 container rounded shadow-lg">
+    <h1 class="mb-4 text-2xl font-semibold">Internal Server Error</h1>
+    @if(error)
+    {
+        <h5 class="text-red-600">Error: {{ error.message }}</h5>
+        <p class="mb-2 font-bold">This error comes from the server, not from the angular.</p>
+        <p class="mb-2">What to do next ?</p>
+        <ol class="ml-5 nb-4 list-decimal">
+            <li class="mb-1">
+                Check the network tab in chrome dev tools
+            </li>
+            <li class="mb-1">
+                Reproduce the error in postman, don't waste time to troubleshooting the anguar code
+            </li>
+        </ol>
+        <h5 class="mb-2 text-lg font-semibold">Stack Trace </h5>
+        <mat-card class="p-4 bg-white">
+            <code class="block whitespace-pre-wrap">{{ error.details }}</code>
+        </mat-card>
+    }
+</div>
